@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main()
+{ //deklarasi variabel
+float X1, V1, X2, V2;
+int a=1, b=1;
+//Judul dan Menu Program
+printf("      =========================================\n");
+printf("\t   Program Adu Lompatan Jangkrik\n");
+printf("  Keterangan:\n");
+printf(" X1 = Posisi awal jangkrik pertama\n");
+printf(" V1 = Perubahan jarak jangkrik pertama\n");
+printf(" X2 = Posisi awal jangkrik kedua\n");
+printf(" V2 = Perubahan jarak jangkrik kedua\n");
+printf(" ====================================================\n");
+
+printf("   Batas-batasnya adalah \n   0<=X1<=X2<=1000\n   1<=V1<=1000 \n   1<=V2<=1000 \n");
+printf("Ingat! jarak awal dimulai dari 0\n");
+printf("Masukkan nilai X1, V1, X2, V2 secara berurutan (pisahkan dengan spasi): "); //Prompting nilai
+scanf("%f %f %f %f", &X1, &V1, &X2, &V2); //Baca nilai
+
+if(X1<=X2 && X1>=0 && X1<=1000 && X2>=0 && X2<=1000 &&
+   V1>=1 && V1<=1000 && V2>=1 && V2<=1000){ //Proses if jika variabel termasuk ke interval tersebut
+
+    while(X1<X2){ //looping
+        X1=X1+V1;
+        a++;
+        X2=X2+V2;
+        b++;
+    }
+    if(X1==X2){ //Jika X1=X2
+        printf("\nYES\n");
+        printf("Kedua jangkrik dapat bertemu pada posisi x=%.1f\n\n", X1);
+    }
+    else{ //Jika X1 !=X2
+        printf("\nNO\n");
+        printf("Kedua jangkrik tidak akan bisa bertemu.\n\n");
+    }
+}
+else{ //Jika nilai yang dimasukkan berada di luar interval
+    printf("\nNilai yang Anda masukkan berada di luar batas\n");
+}
+
+return 0;
+}
