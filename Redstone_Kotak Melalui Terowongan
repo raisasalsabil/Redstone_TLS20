@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define TINGGI_TEROWONGAN 41
 
-struct kotak // mendeklarasikan variabel 
+struct data_kotak // mendeklarasikan variabel 
 {
  int n; // junlah kotak
  int length; 
@@ -10,7 +10,7 @@ struct kotak // mendeklarasikan variabel
  int height;
 }k;
 
-typedef struct kotak kotak;
+typedef struct data_kotak kotak;
 
 int volume(kotak k) { // penghitungan volume
 
