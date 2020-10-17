@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define TINGGI_TEROWONGAN 41
+
+struct kotak // mendeklarasikan variabel 
+{
+ int n; // junlah kotak
+ int length; 
+ int width;
+ int height;
+}k;
+
+typedef struct kotak kotak;
+
+int volume(kotak k) { // penghitungan volume
+
+ return (k.length*k.width*k.height); //return 1
+}
+
+int tinggi_kotak(kotak k) {
+
+    if(k.height > 40) //tinngi lebih dari sama dengan terowongan maka return 0, tinggi kurang dari terowngan return 1
+ {
+  return 0;
+ }
+ else
+ {
+  return 1;
+ }
+}
+
+int main()
+{
+ int n;
+ printf("Masukkan jumlah kotak :");
+ scanf("%d", &n); // meminta input jumlah kotak kotak
+ kotak * kotak_kotak= malloc(n * sizeof(kotak));
+ for (int i = 1; i <= n; i++) {
+  printf("Masukkan berturut-turut panjang, lebar, dan tinggi kotak ke- %i : ", i);
+  scanf("%d%d%d", &kotak_kotak[i].length, &kotak_kotak[i].width, &kotak_kotak[i].height); //meminta input panjang, lebar dan tinggi kotak
+ }
+ for (int i = 1; i <= n; i++) {
+  if (tinggi_kotak(kotak_kotak[i])) {
+   printf("Jadi kotak ke-%i bisa dibawa ke ujung terowongan dengan volume %d\n", i, volume(kotak_kotak[i])); //keluaran volume kotak yang tingginya kurang dari 41
+  }
+ }
+ return 0;
+}
